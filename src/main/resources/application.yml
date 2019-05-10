@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: consul-client
+  cloud:
+    consul:
+      discovery:
+        enabled: true
