@@ -4,8 +4,6 @@ spring:
   cloud:
     consul:
       host: 127.0.0.1
-      port: 8400
+      port: 8500
       discovery:
-        instance-id: consul-client-sc-1
-zone:
-  name: sc-1
+        instance-id: consul-client
