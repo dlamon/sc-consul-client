@@ -74,8 +74,24 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.9</version>
                 <configuration>
-                    <repository>sc.docker.registry.liaowei.net.cn:5000/sc-consul-client</repository>
+                    <buildArgs>
+                        <JAR_FILE>target/*.jar</JAR_FILE>
+                        <PROFILE_ACTIVE>dev</PROFILE_ACTIVE>
+                    </buildArgs>
+                    <tag>${project.version}</tag>
+                    <repository>sc.docker.registry.liaowei.net.cn:5000/sc-projects/${project.name}</repository>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
