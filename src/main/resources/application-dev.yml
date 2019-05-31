@@ -3,7 +3,7 @@ server:
 spring:
   cloud:
     consul:
-      host: 127.0.0.1
+      host: consul-sc-c1
       port: 8500
       discovery:
         instance-id: consul-client

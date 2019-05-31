@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.net.liaowei</groupId>
     <artifactId>sc-consul-client</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>sc-consul-client</name>
     <description>Demo project for Spring Boot</description>
 
@@ -58,17 +58,12 @@
         </dependencies>
     </dependencyManagement>
 
-    <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.springframework.boot</groupId>-->
-                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</build>-->
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
@@ -76,7 +71,6 @@
                 <configuration>
                     <buildArgs>
                         <JAR_FILE>target/*.jar</JAR_FILE>
-                        <PROFILE_ACTIVE>dev</PROFILE_ACTIVE>
                     </buildArgs>
                     <tag>${project.version}</tag>
                     <repository>sc.docker.registry.liaowei.net.cn:5000/sc-projects/${project.name}</repository>

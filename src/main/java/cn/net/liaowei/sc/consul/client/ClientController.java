@@ -19,6 +19,9 @@ import java.util.Map;
 @RequestMapping("/client")
 @Api(tags = "/client", description = "客户端控制类")
 public class ClientController {
+    @Value("${machine}")
+    String machine;
+
     @GetMapping("/info")
     @ApiOperation("获取客户端信息")
     public Map<String, String> getClientInfo() throws UnknownHostException {
@@ -28,6 +31,7 @@ public class ClientController {
         Map<String, String> result = new HashMap<>();
         result.put("ip", ip);
         result.put("hostName", hostName);
+        result.put("machine", machine);
         return result;
     }
 }
